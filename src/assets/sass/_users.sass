@@ -1,0 +1,80 @@
+@import '_variables'
+
+.users-list
+	width: 650px
+	height: 600px
+	background-color: $basic-color-orange
+	display: flex
+	align-items: flex-start
+	justify-content: flex-start
+	flex-direction: column
+	border-radius: $border-radius
+	padding: 20px
+	overflow-y: auto
+	overflow-x: hidden
+	&_item
+		width: 100%
+		height: max-content
+		border: 1px solid $basic-color-opacity
+		display: flex
+		align-items: center
+		padding: 20px
+		margin-bottom: 5px
+		border-radius: $border-radius
+		font-size: 12px
+		position: relative
+		&:hover
+			animation: HoverListItemAnimation 0.8s ease forwards
+			border: 1px solid transparent
+		&-element
+			display: flex
+			align-items: center
+			white-space: nowrap
+			margin-bottom: 12px
+			span
+				font-size: 20px
+				margin-left: 15px
+			&_button
+				width: 50px
+				height: 50px
+				background-color: transparent
+				margin-left: 20px
+				&:hover
+					background-color: $basic-color-text-orange
+					border-radius: 50%
+					padding: 2px
+				&-img
+					width: 40px
+					height: 40px
+		&-number
+			font-size: 30px
+			margin-right: 10px
+		&-edit
+			width: 30px
+			height: 30px
+			background-color: transparent
+			position: absolute
+			right: 20px
+			top: 20px
+			&:hover
+				background-color: $basic-color-text-orange
+				border-radius: 50%
+				padding: 2px
+
+
+.infinite-scroll-component__outerdiv
+	width: 100%
+
+
+.activeRemoveStatus
+	background-color: $basic-color-text-grey
+	.users-list_item
+		&-element
+			text-decoration: line-through
+
+@keyframes HoverListItemAnimation
+	from
+		background-color: transparent
+	to
+		background-color: $basic-color-green
+		color: $basic-color-light-grey

@@ -1,0 +1,282 @@
+[
+	{
+		"id": 1,
+		"name": "Luke",
+		"dateBirth": "15.02.2018",
+		"removeStatus": true,
+		"idnp": "1171693284317"
+	},
+	{
+		"id": 2,
+		"name": "Aaron, Hank",
+		"dateBirth": "14.05.2016",
+		"removeStatus": false,
+		"idnp": "1715693284317"
+	},
+	{
+		"id": 3,
+		"name": "Aeschylus",
+		"dateBirth": "14.01.2017",
+		"removeStatus": true,
+		"idnp": "1715693327540"
+	},
+	{
+		"id": 4,
+		"name": "Ah Koy, James",
+		"dateBirth": "02.02.2017",
+		"removeStatus": false,
+		"idnp": "1715693331843"
+	},
+	{
+		"id": 5,
+		"name": "Akinola, Peter Jasper (Archbishop)",
+		"dateBirth": "03.08.2018",
+		"removeStatus": false,
+		"idnp": "1715693337439"
+	},
+	{
+		"id": 6,
+		"name": "Bazin, André",
+		"dateBirth": "05.11.2016",
+		"removeStatus": false,
+		"idnp": "1715693343042"
+	},
+	{
+		"id": 7,
+		"name": "Blood, Rebecca",
+		"dateBirth": "09.12.2020",
+		"removeStatus": false,
+		"idnp": "1715693355702"
+	},
+	{
+		"id": 8,
+		"name": "Burnham, Frederick Russell",
+		"dateBirth": "23.06.2016",
+		"removeStatus": false,
+		"idnp": "1715693360177"
+	},
+	{
+		"id": 9,
+		"name": "Carrel, Alexis",
+		"dateBirth": "29.10.2017",
+		"removeStatus": false,
+		"idnp": "1715693365573"
+	},
+	{
+		"id": 10,
+		"name": " Chavez, Cesar",
+		"dateBirth": "25.07.2019",
+		"removeStatus": false,
+		"idnp": "1715693369391"
+	},
+	{
+		"id": 11,
+		"name": "Crockett, Davy",
+		"dateBirth": "30.01.2020",
+		"removeStatus": false,
+		"idnp": "1715693373342"
+	},
+	{
+		"id": 12,
+		"name": "Derrida, Jacques",
+		"dateBirth": "14.04.2021",
+		"removeStatus": false,
+		"idnp": "1715693377498"
+	},
+	{
+		"id": 13,
+		"name": "Dutton, Denis",
+		"dateBirth": "11.01.2016",
+		"removeStatus": false,
+		"idnp": "1715693381280"
+	},
+	{
+		"id": 14,
+		"name": "Eluard, Paul",
+		"dateBirth": "25.02.2021",
+		"removeStatus": false,
+		"idnp": "1715693385265"
+	},
+	{
+		"id": 15,
+		"name": "Fey, Tina",
+		"dateBirth": "18.03.2017",
+		"removeStatus": false,
+		"idnp": "1715693388453"
+	},
+	{
+		"id": 16,
+		"name": "Frostrup, Mariella",
+		"dateBirth": "16.05.2016",
+		"removeStatus": false,
+		"idnp": "1715693392383"
+	},
+	{
+		"id": 17,
+		"name": "Gerety, Frances",
+		"dateBirth": "01.08.2017",
+		"removeStatus": false,
+		"idnp": "1715693396837"
+	},
+	{
+		"id": 18,
+		"name": "Harrison, George",
+		"dateBirth": "17.06.2017",
+		"removeStatus": false,
+		"idnp": "1715693403376"
+	},
+	{
+		"id": 19,
+		"name": "Howe, Julia Ward",
+		"dateBirth": "13.04.2021",
+		"removeStatus": false,
+		"idnp": "1715693407990"
+	},
+	{
+		"id": 20,
+		"name": "Hume, David",
+		"dateBirth": "16.01.2016",
+		"removeStatus": false,
+		"idnp": "1715693414384"
+	},
+	{
+		"id": 21,
+		"name": "Keynes, John Maynard",
+		"dateBirth": "25.05.2020",
+		"removeStatus": false,
+		"idnp": "1715693418666"
+	},
+	{
+		"id": 22,
+		"name": "Lévi-Strauss, Claude",
+		"dateBirth": "27.10.2022",
+		"removeStatus": false,
+		"idnp": "1715693422864"
+	},
+	{
+		"id": 23,
+		"name": "Lowell, Christopher",
+		"dateBirth": "22.06.2019",
+		"removeStatus": false,
+		"idnp": "1715693426429"
+	},
+	{
+		"id": 24,
+		"name": "Ochs, Phil",
+		"dateBirth": "04.07.2020",
+		"removeStatus": false,
+		"idnp": "1715693430746"
+	},
+	{
+		"id": 25,
+		"name": "Oppenheimer, J. Robert",
+		"dateBirth": "19.10.2020",
+		"removeStatus": false,
+		"idnp": "1715693434255"
+	},
+	{
+		"id": 26,
+		"name": "Paul VI (Pope)",
+		"dateBirth": "13.12.2017",
+		"removeStatus": false,
+		"idnp": "1715693438461"
+	},
+	{
+		"id": 27,
+		"name": "Qin Shi Huang",
+		"dateBirth": "28.02.2016",
+		"removeStatus": false,
+		"idnp": "1715693441731"
+	},
+	{
+		"id": 28,
+		"name": "Rockefeller, John D.",
+		"dateBirth": "20.10.2020",
+		"removeStatus": false,
+		"idnp": "1715693446247"
+	},
+	{
+		"id": 29,
+		"name": "Santayana, George",
+		"dateBirth": "06.05.2017",
+		"removeStatus": false,
+		"idnp": "1715693451309"
+	},
+	{
+		"id": 30,
+		"name": "Satriani, Joe",
+		"dateBirth": "07.12.2016",
+		"removeStatus": false,
+		"idnp": "1715693454344"
+	},
+	{
+		"id": 31,
+		"name": "Stewart, James (Jimmy)",
+		"dateBirth": "01.07.2022",
+		"removeStatus": false,
+		"idnp": "1715693458535"
+	},
+	{
+		"id": 32,
+		"name": "Thackeray, William Makepeace",
+		"dateBirth": "14.05.2020",
+		"removeStatus": false,
+		"idnp": "1715693461753"
+	},
+	{
+		"id": 33,
+		"name": "Tzara, Tristan",
+		"dateBirth": "18.07.2010",
+		"removeStatus": false,
+		"idnp": "1715693465692"
+	},
+	{
+		"id": 34,
+		"name": "Watson, Thomas J.",
+		"dateBirth": "17.03.2000",
+		"removeStatus": false,
+		"idnp": "1715693469279"
+	},
+	{
+		"id": 35,
+		"name": "Williamson, Henry",
+		"dateBirth": "15.03.2020",
+		"removeStatus": false,
+		"idnp": "1715693473193"
+	},
+	{
+		"id": 36,
+		"name": "Yeats, William Butler",
+		"dateBirth": "17.04.2022",
+		"removeStatus": false,
+		"idnp": "1715693477994"
+	},
+	{
+		"id": 37,
+		"name": "Yourcenar, Marguerite",
+		"dateBirth": "19.02.2016",
+		"removeStatus": false,
+		"idnp": "1715693481616"
+	},
+	{
+		"id": 38,
+		"name": "Zeldin, Theodore",
+		"dateBirth": "23.11.2017",
+		"removeStatus": false,
+		"idnp": "1715693485584"
+	},
+	{
+		"id": 39,
+		"name": "Zimmermann, Philip",
+		"dateBirth": "25.02.2016",
+		"removeStatus": false,
+		"idnp": "1715693489308"
+	},
+	{
+		"id": 40,
+		"name": "Zinck, Kenneth",
+		"dateBirth": "01.01.2021",
+		"removeStatus": false,
+		"idnp": "1715693493024"
+	}
+]

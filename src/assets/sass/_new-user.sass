@@ -1,3 +1,29 @@
 @import '_variables'
 
-.add-new_user-button
+.add-new_user
+	margin-bottom: 20px
+	&-input
+		height: 40px
+		border-bottom: 1px solid $black
+	&-button
+		width: 220px
+		height: 50px
+		background-color: $basic-color-green
+		border-radius: $border-radius
+		margin-top: 30px
+		color: $white
+		font-size: 22px
+		overflow: hidden
+		&:hover
+			animation: HoverButtonAnimation 0.8s forwards
+
+@keyframes HoverButtonAnimation
+	from
+		background-color: $basic-color-green
+		color: $white
+		padding-top: 50px
+
+	to
+		background-color: $basic-color-text-grey
+		color: $white
+		padding-top: 0
