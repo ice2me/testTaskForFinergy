@@ -1,7 +1,5 @@
 import React, {FC} from 'react'
 
-
-
 interface ToggleLanguagesProps {
 	languageList: string[]
 	changedLang: string
