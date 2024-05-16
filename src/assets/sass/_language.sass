@@ -1,0 +1,19 @@
+@import '_variables'
+
+.language
+	position: absolute
+	right: 30px
+	top: 30px
+	&-wrapper
+		&_item
+			width: 60px
+			height: 60px
+			@include centering
+			font-size: 25px
+			margin-bottom: 12px
+			cursor: pointer
+			border-radius: 50%
+			text-transform: uppercase
+.activeLanguage
+	background-color: $basic-color-orange
+	color: $white

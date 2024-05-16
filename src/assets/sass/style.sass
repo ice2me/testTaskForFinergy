@@ -1,19 +1,9 @@
 @import '_app'
-@import '_header-desktop'
-@import '_header-mob'
-@import '_home'
-@import '_profile'
-@import '_login'
-@import '_registrationShop'
-@import '_modalCard'
-@import '_editProfile'
-@import '_productList'
-@import '_category'
-@import '_navbar'
-@import '_qrCode'
-@import '_card-item'
+@import '_users'
+@import '_new-user'
+@import '_language'
 @import '_variables'
-
+@import 'bootstrap/dist/css/bootstrap.min.css'
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap')
 
 *
@@ -49,10 +39,7 @@ html, body
   outline: none
   scroll-behavior: smooth !important
   overflow: hidden
-  background: $white
-  display: flex
-  align-items: center
-  justify-content: center
+  background: #fff
   color: $basic-color-text
 
 input::-ms-clear
@@ -123,7 +110,7 @@ p, span
   cursor: default
 
 html:not(.touch-screen)::-webkit-scrollbar-track, html:not(.touch-screen) *::-webkit-scrollbar-track
-  background: $white
+  background: #fff
   border-radius: 6px
   width: 6px
 
@@ -136,47 +123,3 @@ html:not(.touch-screen)::-webkit-scrollbar, html:not(.touch-screen) *::-webkit-s
   width: 6px
   border-radius: 6px
   height: 6px
-
-.loader-full
-  position: fixed
-  top: 0
-  right: 0
-  left: 0
-  bottom: 0
-  z-index: 9999
-  display: flex
-  align-items: center
-  justify-content: center
-
-.loader-wrapperForProduct
-  width: 250px
-  min-width: 250px
-  height: 350px
-  border-radius: 6px
-  box-shadow: $box-shadow
-  margin: 8px
-  padding: 5px 0
-  display: flex
-  align-items: center
-  justify-content: center
-  background-color: $basic-color-opacity
-
-.small-loader
-  width: 10px
-  height: 10px
-  margin: 8px
-  padding: 5px 0
-  display: flex
-  align-items: center
-  justify-content: center
-  position: absolute
-  right: 30%
-
-  div
-    width: 40px
-    height: 40px
-
-    img
-      width: 40px
-      height: 40px
-      min-height: 40px
