@@ -1,49 +1,76 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import {useDispatch, useSelector} from 'react-redux'
 import {IUser} from '../types/types'
-import {addNewUser} from '../redux/slices/usersSlice'
+import {addNewUser, changeModalWindowState, updateUser} from '../redux/slices/usersSlice'
 import {formatDateStr} from '../utils/helpersFunctions'
-import {Formik} from 'formik'
+import {Formik, FormikHelpers} from 'formik'
 import {postUserSchema} from '../utils/validation/yupUpdateUser'
 import {useIntl} from 'react-intl'
 import {Form} from 'react-bootstrap'
 
-interface Props {
+interface modalAddEditProps {
 	show: boolean
-	onHide: () => void
+	editingStatus?: boolean
+	editUserData?: IUser
 }
 
-const initialForm = {
-	id: null,
-	nameUser: '',
-	dateBirth: '',
-	removeStatus: false,
-	idnp: ''
-}
-
-const ModalForAddNewUserInfo: React.FC<Props> = ({show, onHide}) => {
+const ModalForAddNewUserInfo: React.FC<modalAddEditProps> = ({show, editingStatus, editUserData}) => {
 	const {users} = useSelector((state: any) => state.users)
-	const [form, setForm] = useState(initialForm)
+	const [form, setForm] = useState<IUser>({
+		id: 0,
+		name: '',
+		dateBirth: '',
+		removeStatus: false,
+		idnp: ''
+	})
 	const {formatMessage} = useIntl()
 	const dispatch = useDispatch()
+	console.log('form', form)
 
-	const formDateUpdateHandler = (opt: any) => {
-		setForm({...form, ...opt})
+	const onHide = () => {
+		dispatch(changeModalWindowState(false))
+		setForm({
+			id: 0,
+			name: '',
+			dateBirth: '',
+			removeStatus: false,
+			idnp: ''
+		})
 	}
 
-	const handleFormSubmit = (values: any) => {
-		const newUser: IUser = {
+	useEffect(() => {
+		if (editingStatus && editUserData) {
+			setForm(editUserData)
+		} else {
+			setForm({
+				id: 0,
+				name: '',
+				dateBirth: '',
+				removeStatus: false,
+				idnp: ''
+			})
+		}
+	}, [editingStatus, editUserData])
+
+	const handleFormSubmit = (values: IUser, {resetForm}: FormikHelpers<IUser>) => {
+
+		const tehDataUser: IUser = {
 			id: users.length + 1,
-			name: values.nameUser,
+			name: values.name,
 			dateBirth: formatDateStr(values.dateBirth),
 			removeStatus: true,
-			idnp: values.idnp === '' ? String(Date.now()) : values.idnp
+			idnp: values.idnp === '' ? String(Date.now()) : values.idnp,
 		}
-		dispatch(addNewUser(newUser))
-		setForm(initialForm)
+
+		if (editingStatus && editUserData) {
+			dispatch(updateUser({ ...editUserData, ...values }))
+		} else {
+			dispatch(addNewUser(tehDataUser))
+		}
 		onHide()
+		resetForm()
 	}
 
 	return (
@@ -51,16 +78,11 @@ const ModalForAddNewUserInfo: React.FC<Props> = ({show, onHide}) => {
 			show={show}
 			onHide={onHide}
 			backdrop='static'
-			keyboard={false}
+			keyboard={true}
 			centered
 		>
       <Formik
-				validateOnChange
-				initialValues={{
-					nameUser: '',
-					dateBirth: '',
-					idnp: ''
-				}}
+				initialValues={form}
 				validationSchema={postUserSchema(formatMessage)}
 				onSubmit={handleFormSubmit}
 				enableReinitialize
@@ -73,54 +95,42 @@ const ModalForAddNewUserInfo: React.FC<Props> = ({show, onHide}) => {
 						handleBlur,
 						isValid,
 						handleSubmit,
-						dirty
-					}) => (
-					<Form className='formOrder-form' onSubmit={handleSubmit}>
+						dirty,
+					}) => {
+					return (
+					<Form onSubmit={handleSubmit}>
             <Modal.Header closeButton>
-              <Modal.Title >Modal title</Modal.Title >
+              <Modal.Title >{editingStatus ? 'Edit user' : 'Add user'}</Modal.Title >
             </Modal.Header >
             <Modal.Body >
               <Form.Group className='add-new_user'>
                 <Form.Control
 									type='text'
-									value={values?.nameUser}
-									name={'nameUser'}
+									defaultValue={values.name || form.name}
+									name='name'
 									placeholder='Name'
-									className={`pe-5  ${
-										touched.nameUser ? 'is-touch ' : ''
-									} ${
-										errors.nameUser && touched.nameUser ? ' is-invalid' : ''
+									className={`pe-5 ${touched.name ? 'is-touch' : ''} ${
+										errors.name && touched.name ? ' is-invalid' : ''
 									} add-new_user-input`}
-									onChange={(e) => {
-										handleChange(e)
-										formDateUpdateHandler({[e.target.name]: e.target.value})
-									}
-									}
+									onChange={handleChange}
 									onBlur={handleBlur}
 								/>
-								{errors.nameUser && touched.nameUser && (
+								{errors.name && touched.name && (
 									<Form.Control.Feedback type='invalid'>
-                    {errors.nameUser}
+                    {errors.name}
                   </Form.Control.Feedback >
 								)}
               </Form.Group >
-
-							<Form.Group className='add-new_user'>
+              <Form.Group className='add-new_user'>
                 <Form.Control
 									type='date'
-									value={values?.dateBirth}
-									name={'dateBirth'}
-									placeholder='Name'
-									className={`pe-5  ${
-										touched.dateBirth ? 'is-touch ' : ''
-									} ${
+									value={values.dateBirth}
+									name='dateBirth'
+									placeholder='Date of Birth'
+									className={`pe-5 ${touched.dateBirth ? 'is-touch' : ''} ${
 										errors.dateBirth && touched.dateBirth ? ' is-invalid' : ''
 									} add-new_user-input`}
-									onChange={(e) => {
-										handleChange(e)
-										formDateUpdateHandler({[e.target.name]: e.target.value})
-									}
-									}
+									onChange={handleChange}
 									onBlur={handleBlur}
 								/>
 								{errors.dateBirth && touched.dateBirth && (
@@ -129,23 +139,16 @@ const ModalForAddNewUserInfo: React.FC<Props> = ({show, onHide}) => {
                   </Form.Control.Feedback >
 								)}
               </Form.Group >
-
-							<Form.Group className='add-new_user'>
+              <Form.Group className='add-new_user'>
                 <Form.Control
 									type='number'
-									value={values?.idnp}
-									name={'idnp'}
+									value={values.idnp}
+									name='idnp'
 									placeholder='IDNP'
-									className={`pe-5  ${
-										touched.idnp ? 'is-touch ' : ''
-									} ${
+									className={`pe-5 ${touched.idnp ? 'is-touch' : ''} ${
 										errors.idnp && touched.idnp ? ' is-invalid' : ''
 									} add-new_user-input`}
-									onChange={(e) => {
-										handleChange(e)
-										formDateUpdateHandler({[e.target.name]: e.target.value})
-									}
-									}
+									onChange={handleChange}
 									onBlur={handleBlur}
 								/>
 								{errors.idnp && touched.idnp && (
@@ -160,13 +163,13 @@ const ModalForAddNewUserInfo: React.FC<Props> = ({show, onHide}) => {
 								variant='success'
 								type='submit'
 								className='w-25'
-								disabled={!isValid && dirty}
+								disabled={!isValid || !dirty}
 							>
-                ADD
+                {editingStatus ? 'Update' : 'Add'}
               </Button >
             </Modal.Footer >
           </Form >
-				)}
+				)}}
       </Formik >
     </Modal >
 	)

@@ -2,7 +2,7 @@ import * as yup from "yup"
 
 export const postUserSchema = (formatMessage) => {
 	return yup.object().shape({
-		nameUser: yup
+		name: yup
 			.string()
 			.required(formatMessage ({id: "nameUserRequired"})),
 		dateBirth: yup

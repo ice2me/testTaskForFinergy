@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { formatDateStr } from '../../utils/helpersFunctions'
 
 const initialState = {
 	users: [],
+	modalWindowState: false,
+	editUser: false
 }
 
 
@@ -26,6 +29,22 @@ const usersSlice = createSlice({
 				}
 			})
 			state.users = res
+		},
+		changeModalWindowState: (state, action) => {
+			state.modalWindowState = action.payload
+		},
+		changeEditUser: (state, action) => {
+			state.editUser = action.payload
+		},
+		updateUser: (state, action) => {
+			console.log('action.payload', action.payload)
+			state.users = state.users.map(item => {
+				if (item.id === action.payload.id) {
+					return {...action.payload, dateBirth: formatDateStr(action.payload.dateBirth)}
+				} else {
+					return item
+				}
+			})
 		}
 	}
 })
@@ -38,5 +57,8 @@ export const {
 	dropUsersList,
 	addNewUser,
 	deleteReturnUserOnClass,
+	changeModalWindowState,
+	changeEditUser,
+	updateUser
 } = actions
 export default reducer
