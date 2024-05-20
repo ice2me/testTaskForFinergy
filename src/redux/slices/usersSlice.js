@@ -37,7 +37,6 @@ const usersSlice = createSlice({
 			state.editUser = action.payload
 		},
 		updateUser: (state, action) => {
-			console.log('action.payload', action.payload)
 			state.users = state.users.map(item => {
 				if (item.id === action.payload.id) {
 					return {...action.payload, dateBirth: formatDateStr(action.payload.dateBirth)}

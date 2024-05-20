@@ -27,7 +27,6 @@ const ModalForAddNewUserInfo: React.FC<modalAddEditProps> = ({show, editingStatu
 	})
 	const {formatMessage} = useIntl()
 	const dispatch = useDispatch()
-	console.log('form', form)
 
 	const onHide = () => {
 		dispatch(changeModalWindowState(false))

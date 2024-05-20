@@ -28,9 +28,7 @@ const UsersList: FC<editingUserProps> = ({showModal}) => {
 
 	const handleEditUser = (user: IUser) => {
 		const res = formatReturnDateStr(user.dateBirth)
-		console.log('res', res)
 		const tehData = {...user, dateBirth: res}
-		console.log(tehData)
 		setEditUserData(tehData)
 		setLoading(false)
 		dispatch(changeModalWindowState(true))
