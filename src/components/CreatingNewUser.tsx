@@ -1,19 +1,27 @@
-import React, {FC, useState} from 'react'
+import React, {FC} from 'react'
 import ModalForAddNewUserInfo from "./ModalForAddNewUserInfo"
-import {FormattedMessage} from "react-intl";
+import {FormattedMessage} from "react-intl"
+import {changeEditUser, changeModalWindowState} from "../redux/slices/usersSlice"
+import {useDispatch, useSelector} from "react-redux"
 
-const CreatingNewUser: FC = () => {
-	const [showModal, setShowModal] = useState(false)
-	const handleClose = () => setShowModal(false)
-	const handleShow = () => setShowModal(true)
+interface creatingNewUserProps {
+	showModal: boolean
+}
 
+const CreatingNewUser: FC<creatingNewUserProps> = ({showModal}) => {
+	const {editUser} = useSelector((state: any) => state.users)
+	const dispatch = useDispatch()
+	const handleShow = () => {
+		dispatch(changeModalWindowState(true))
+		dispatch(changeEditUser(false))
+	}
 	return (
 		<>
 			{
-				showModal &&
+				(showModal && editUser === false) &&
 				<ModalForAddNewUserInfo
 					show={showModal}
-					onHide={handleClose}
+					editingStatus={editUser}
 				/>
 			}
 			<button

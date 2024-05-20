@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import fakeData from './data.json'
 import {dropUsersList} from "./redux/slices/usersSlice"
 import UsersList from "./components/UsersList"
@@ -12,9 +12,9 @@ import ToggleLanguages from "./components/ToggleLanguages"
 const languageList: string[] = ['en', 'ukr', 'rus']
 
 const App: FC = () => {
+	const {modalWindowState} = useSelector((state: any) => state.users)
 	const [languageLocal, setLanguageLocal] = useState(LOCALES.EN)
 	const dispatch = useDispatch()
-
 	const changeLanguageHandler = (lang: string) => {
 		if (lang === 'en') setLanguageLocal(LOCALES.EN)
 		else if (lang === 'ukr') setLanguageLocal(LOCALES.UKR)
@@ -46,11 +46,15 @@ const App: FC = () => {
 					changedLang={languageLocal}
 				/>
 				<h1 className='App-title'>
-					<FormattedMessage id='h1Title'/>
+					<FormattedMessage id='h1Title' />
 				</h1 >
 				<div className='App-triangle_top'></div >
-				<UsersList />
-				<CreatingNewUser />
+				<UsersList
+					showModal={modalWindowState}
+				/>
+				<CreatingNewUser
+					showModal={modalWindowState}
+				/>
 			</IntlProvider >
     </div >
 	)

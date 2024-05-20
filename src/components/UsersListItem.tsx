@@ -3,14 +3,16 @@ import {FormattedMessage} from "react-intl"
 import delUserClass from '../assets/icons/delete.svg'
 import returnUserClass from '../assets/icons/exit.svg'
 import editUser from '../assets/icons/pencilEdit.svg'
+import {IUser} from "../types/types"
 
 interface UsersListItemProps {
-	user: any,
-	indexUser: number,
+	user: any
+	indexUser: number
 	deleteOrReturnHandler: (userId: number) => void
+	handleEditUser: (userId: IUser) => void
 }
 
-const UsersListItem: FC<UsersListItemProps> = ({user, indexUser, deleteOrReturnHandler}) => {
+const UsersListItem: FC<UsersListItemProps> = ({user, indexUser, deleteOrReturnHandler, handleEditUser}) => {
 
 	return (
 		<li
@@ -33,7 +35,10 @@ const UsersListItem: FC<UsersListItemProps> = ({user, indexUser, deleteOrReturnH
 			 <div className='users-list_item-element'>
 				 <FormattedMessage id='userDroppedFromClass' /> <span >{user.removeStatus ?
 				 <FormattedMessage id='no' /> : <FormattedMessage id='yes' />}</span >
-				 <button className='users-list_item-element_button' onClick={() => deleteOrReturnHandler(user.id)}>
+				 <button
+					 className='users-list_item-element_button'
+					 onClick={() => deleteOrReturnHandler(user.id)}
+				 >
 					 {
 						 user.removeStatus
 							 ?
@@ -54,7 +59,12 @@ const UsersListItem: FC<UsersListItemProps> = ({user, indexUser, deleteOrReturnH
 				 </button >
 			 </div >
 		 </div >
-			<button className='users-list_item-edit'>
+			<button
+				className='users-list_item-edit'
+				onClick={() => {
+					handleEditUser(user)
+				}}
+			>
 				<img
 					src={editUser}
 					alt='edit user'
