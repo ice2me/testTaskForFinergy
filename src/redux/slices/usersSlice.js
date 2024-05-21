@@ -4,7 +4,8 @@ import { formatDateStr } from '../../utils/helpersFunctions'
 const initialState = {
 	users: [],
 	modalWindowState: false,
-	editUser: false
+	editUser: false,
+	filteredResults: []
 }
 
 
@@ -28,7 +29,7 @@ const usersSlice = createSlice({
 					return item
 				}
 			})
-			state.users = res
+			state.users = state.filteredResults.length ? state.users :  res
 		},
 		changeModalWindowState: (state, action) => {
 			state.modalWindowState = action.payload
@@ -44,7 +45,10 @@ const usersSlice = createSlice({
 					return item
 				}
 			})
-		}
+		},
+		handlerFilteredResults: (state, action) => {
+			state.filteredResults = action.payload
+		},
 	}
 })
 
@@ -58,6 +62,7 @@ export const {
 	deleteReturnUserOnClass,
 	changeModalWindowState,
 	changeEditUser,
-	updateUser
+	updateUser,
+	handlerFilteredResults
 } = actions
 export default reducer

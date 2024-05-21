@@ -8,11 +8,12 @@ import {IUser} from "../types/types"
 import {formatReturnDateStr} from "../utils/helpersFunctions"
 
 interface editingUserProps {
+	users: []
 	showModal: boolean
 }
 
-const UsersList: FC<editingUserProps> = ({showModal}) => {
-	const {users, editUser} = useSelector((state: any) => state.users)
+const UsersList: FC<editingUserProps> = ({users, showModal}) => {
+	const {editUser} = useSelector((state: any) => state.users)
 	const [displayedUsersCount, setDisplayedUsersCount] = useState<number>(5)
 	const [editUserData, setEditUserData] = useState<IUser>()
 	const [loading, setLoading] = useState(true)
@@ -65,7 +66,7 @@ const UsersList: FC<editingUserProps> = ({showModal}) => {
 				scrollableTarget='users-list'
 				height={550}
 			>
-          {users.slice(0, displayedUsersCount).map((user: any, index: number) => (
+          {users && users?.slice(0, displayedUsersCount).map((user: any, index: number) => (
 						<UsersListItem
 							user={user}
 							key={user.id}

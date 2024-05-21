@@ -17,5 +17,8 @@ export default {
 		nameUserRequired: "ФИ обязательное поле для ввода",
 		dateBirth: "Поле даты рождения обязательно",
 		idnp: 'Поле IDNP обязательно и должно содержать 13 цифро',
+		// Search blocks
+		searchName: 'Поиск по имени',
+		searchIDNP: 'Поиск по IDNP',
 	}
 };

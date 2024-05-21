@@ -17,5 +17,8 @@ export default {
     nameUserRequired: "Name required input field",
     dateBirth: "Date birth field is required",
     idnp: 'The IDNP field is required and must contain 13 digits',
+    // Search blocks
+    searchName: 'Search Name',
+    searchIDNP: 'Search IDNP',
   }
 };
